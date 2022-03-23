@@ -11,16 +11,16 @@
         <link href='http://fonts.googleapis.com/css?family=Dosis:400,700' rel='stylesheet' type='text/css'>
 
         <!-- Bootsrap -->
-        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../static/css/bootstrap.min.css">
 
         <!-- Font awesome -->
-        <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+        <link rel="stylesheet" href="../static/css/font-awesome.min.css">
 
         <!-- Template main Css -->
-        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="../static/css/style.css">
         
         <!-- Modernizr -->
-        <script src="assets/js/modernizr-2.6.2.min.js"></script>
+        <script src="../static/js/modernizr-2.6.2.min.js"></script>
 
 
     </head>
@@ -80,7 +80,7 @@
 
                   </button>
                   
-                  <a class="navbar-brand" href="index.html"><img src="assets/images/sadaka-logo.png" alt=""></a>
+                  <a class="navbar-brand" href="{{ url_for('index') }}"><img src="../static/images/sadaka-logo.png" alt=""></a>
                   
                 </div>
 
@@ -88,20 +88,20 @@
 
                   <ul class="nav navbar-nav">
 
-                    <li><a href="index.html">HOME</a></li>
-                    <li><a class="is-active"  href="about.html">ABOUT</a></li>
+                    <li><a href="{{ url_for('index') }}">HOME</a></li>
+                    <li><a class="is-active"  href="{{ url_for('about') }}">ABOUT</a></li>
                     <li class="has-child"><a href="#">CAUSES</a>
 
                       <ul class="submenu">
-                         <li class="submenu-item"><a href="causes.html">Causes list </a></li>
-                         <li class="submenu-item"><a href="causes-single.html">Single cause </a></li>
-                         <li class="submenu-item"><a href="causes-single.html">Single cause </a></li>
-                         <li class="submenu-item"><a href="causes-single.html">Single cause </a></li>
+                         <li class="submenu-item"><a href="{{ url_for('causes') }}">Causes list </a></li>
+                         <li class="submenu-item"><a href="{{ url_for('causesSingle') }}">Single cause </a></li>
+                         <li class="submenu-item"><a href="{{ url_for('causesSingle') }}">Single cause </a></li>
+                         <li class="submenu-item"><a href="{{ url_for('causesSingle') }}">Single cause </a></li>
                       </ul>
 
                     </li>
-                    <li><a href="gallery.html">GALLERY</a></li>
-                    <li><a href="contact.html">CONTACT</a></li>
+                    <li><a href="{{ url_for('gallery') }}">GALLERY</a></li>
+                    <li><a href="{{ url_for('contact') }}">CONTACT</a></li>
 
                   </ul>
 
@@ -138,7 +138,7 @@
 
 				<div class="col-md-6">
 
-					<img src="assets/images/about-us.jpg" alt="" class="img-responsive">
+					<img src="../static/images/about-us.jpg" alt="" class="img-responsive">
 
 				</div>
 
@@ -181,7 +181,7 @@
 			                  <div class="about-us-col">
 
 			                        <div class="col-icon-wrapper">
-			                          <img src="assets/images/icons/our-mission-icon.png" alt="">
+			                          <img src="../static/images/icons/our-mission-icon.png" alt="">
 			                        </div>
 			                        <h3 class="col-title">our mission</h3>
 			                        <div class="col-details">
@@ -201,7 +201,7 @@
 			                  <div class="about-us-col">
 
 			                        <div class="col-icon-wrapper">
-			                          <img src="assets/images/icons/make-donation-icon.png" alt="">
+			                          <img src="../static/images/icons/make-donation-icon.png" alt="">
 			                        </div>
 			                        <h3 class="col-title">Make donations</h3>
 			                        <div class="col-details">
@@ -221,7 +221,7 @@
 			                  <div class="about-us-col">
 
 			                        <div class="col-icon-wrapper">
-			                          <img src="assets/images/icons/help-icon.png" alt="">
+			                          <img src="../static/images/icons/help-icon.png" alt="">
 			                        </div>
 			                        <h3 class="col-title">Help & support</h3>
 			                        <div class="col-details">
@@ -241,7 +241,7 @@
 			                  <div class="about-us-col">
 
 			                        <div class="col-icon-wrapper">
-			                          <img src="assets/images/icons/programs-icon.png" alt="">
+			                          <img src="../static/images/icons/programs-icon.png" alt="">
 			                        </div>
 			                        <h3 class="col-title">our programs</h3>
 			                        <div class="col-details">
@@ -279,7 +279,7 @@
 
 	                        <div class="thumnail">
 
-	                            <img src="assets/images/team/member-1.jpg" alt="" class="cause-img">
+	                            <img src="../static/images/team/member-1.jpg" alt="" class="cause-img">
 	                            
 	                        </div>
 
@@ -313,7 +313,7 @@
 
 	                        <div class="thumnail">
 
-	                            <img src="assets/images/team/member-3.jpg" alt="" class="cause-img">
+	                            <img src="../static/images/team/member-3.jpg" alt="" class="cause-img">
 	                            
 	                        </div>
 
@@ -348,7 +348,7 @@
 
 	                        <div class="thumnail">
 
-	                            <img src="assets/images/team/member-4.jpg" alt="" class="cause-img">
+	                            <img src="../static/images/team/member-4.jpg" alt="" class="cause-img">
 	                            
 	                        </div>
 
@@ -383,7 +383,7 @@
 
 	                        <div class="thumnail">
 
-	                            <img src="assets/images/team/member-2.jpg" alt="" class="cause-img">
+	                            <img src="../static/images/team/member-2.jpg" alt="" class="cause-img">
 	                            
 	                        </div>
 
@@ -564,14 +564,14 @@
         
         <!-- jQuery -->
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="assets/js/jquery-1.11.1.min.js"><\/script>')</script>
+        <script>window.jQuery || document.write('<script src="../static/js/jquery-1.11.1.min.js"><\/script>')</script>
 
         <!-- Bootsrap javascript file -->
-        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="../static/js/bootstrap.min.js"></script>
 
 
         <!-- Template main javascript -->
-        <script src="assets/js/main.js"></script>
+        <script src="../static/js/main.js"></script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>
