@@ -1,19 +1,20 @@
-from flask import Flask, redirect, session, url_for, render_template, request
-from app.auth.auth import auth_blueprint
-from app.auth.user import user_blueprint
-from app.controller.controller import controller_blueprint
-from app.data.data import data_blueprint
-from app.payload.payload import payload_blueprint
+from dotenv import dotenv_values
 from app.views.views import views_blueprint
-
+from app.payload.payload import payload_blueprint
+from app.data.data import data_blueprint
+from app.controller.controller import controller_blueprint
+from app.auth.user import user_blueprint
+from app.auth.auth import auth_blueprint
+from flask import Flask, redirect, session, url_for, render_template, request
 
 app = Flask(__name__)
-session['loggedIn'] = 0
-session['context'] = redirect(url_for('/'))
+app.config['SECRET_KEY'] = dotenv_values(".env")['SECRET_KEY']
 
 
 @app.route('/')
 def index():
+    session['loggedIn'] = 0
+    session['context'] = 'home'
     return render_template('index.html')
 
 
@@ -22,28 +23,43 @@ def home():
     return render_template('index.html')
 
 
+@app.route('/login')
+def login():
+    return render_template('login.html', msg=request.args.get('msg'))
+
+
+@app.route('/signup')
+def signup():
+    return render_template('signup.html', msg=request.args.get('msg'))
+
+
 @app.route('/about')
 def about():
+    session['context'] = 'about'
     return render_template('about.html')
 
 
 @app.route('/contact')
 def contact():
+    session['context'] = 'contact'
     return render_template('contact.html')
 
 
 @app.route('/gallery')
 def gallery():
+    session['context'] = 'gallery'
     return render_template('gallery.html')
 
 
 @app.route('/causes')
 def causes():
+    session['context'] = 'causes'
     return render_template('causes.html')
 
 
 @app.route('/causes-single')
 def causesSingle():
+    session['context'] = 'causes-single'
     return render_template('causes-single.html')
 
 

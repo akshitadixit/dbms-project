@@ -5,19 +5,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Signup</title>
 </head>
 
 <body>
     <center>
-        <h1 class="login-h">Login</h1>
+        <h1 class="login-h">Signup</h1>
 
-        <form class="login" action="/login/auth" method="post">
-            <input type="text" placeholder="Username or Email" name="username" class="field" />
+        <form class="login" action="/signup/auth" method="post">
+            <input type="text" placeholder="Username" name="username" class="field" />
+            <input type="text" placeholder="Email" name="email" class="field" />
             <input type="text" placeholder="Password" name="password" class="field" />
-            <input type="submit" value="login" class="btn">
+            <input type="submit" value="signup" class="btn">
         </form>
-        <h4><a href="{{url_for('signup')}}">Signup</a></h4>
+        <h4><a href="{{url_for('login')}}">Login</a></h4>
         {% block content %}
         {% if msg %}
         <center>{{msg}}</center>
