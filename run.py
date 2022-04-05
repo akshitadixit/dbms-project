@@ -3,7 +3,8 @@ from app.views.views import views_blueprint
 from app.payload.payload import payload_blueprint
 from app.data.data import data_blueprint
 from app.controller.controller import controller_blueprint
-from app.auth.user import user_blueprint
+from app.views.user import user_blueprint
+from app.views.org import organisation_blueprint
 from app.auth.auth import auth_blueprint
 from flask import Flask, redirect, session, url_for, render_template, request
 
@@ -65,6 +66,7 @@ def causesSingle():
 
 app.register_blueprint(auth_blueprint)
 app.register_blueprint(user_blueprint)
+app.register_blueprint(organisation_blueprint)
 app.register_blueprint(controller_blueprint)
 app.register_blueprint(data_blueprint)
 app.register_blueprint(payload_blueprint)

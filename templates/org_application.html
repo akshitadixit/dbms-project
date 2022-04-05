@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Organisation</title>
+</head>
+
+<body>
+    <center>
+        <h1 class="login-h">Create Organisation</h1>
+
+        <form class="login" action="/org/create" method="post">
+            <input type="text" placeholder="Organisation Name" name="orgname" class="field" />
+            <input type="text" placeholder="Organisation Email" name="orgmail" class="field" />
+            <input type="text" placeholder="Description" name="description" class="field" />
+            <input type="submit" value="Create" class="btn">
+        </form>
+        {% block content %}
+        {% if msg %}
+        <center>{{msg}}</center>
+        {% endif %}
+        {% endblock %}
+
+    </center>
+</body>
+
+</html>

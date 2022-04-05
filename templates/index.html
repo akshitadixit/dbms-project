@@ -116,7 +116,7 @@
 
               </li>
               <li><a href="{{ url_for('gallery') }}">GALLERY</a></li>
-              <li><a href="{{ url_for('contact') }}">CONTACT</a></li>
+              <li><a href="{{ url_for('organisation.org_apply') }}">CREATE ORG</a></li>
               {% block content %}
               {% if session['loggedIn'] %}
               <li><a href="{{ url_for('auth.logout_route') }}">LOGOUT</a></li>
@@ -124,6 +124,7 @@
               <li><a href="{{ url_for('login') }}">LOGIN</a></li>
               {% endif %}
               {% endblock %}
+              <li><a href="{{ url_for('user.user_profile') }}">PROFILE</a></li>
 
             </ul>
 
