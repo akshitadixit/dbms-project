@@ -13,14 +13,15 @@ def edit(*args, **kwargs):
 def user_profile():
     # load profile
     if session['loggedIn']:
-        user = db.users.find({'username': session['user']},{'_id': 0, 'password': 0, 'email': 1})
-        print([x for x in user])
-        orgs = db.orgs.find({'user': user})
+        user = db.users.find_one({'username': session['user']})
+        orgs = list(db.orgs.find({'user': user['username']}))
         if orgs:
-            print([x for x in orgs])
+            for x in orgs:
+                print(x)
+        user['orgs'] = orgs
         return render_template('profile.html', profile=user)
 
-    session['context'] = 'profile'
+    session['context'] = 'user.user_profile'
     return redirect(url_for('login'))
 
 

@@ -8,15 +8,11 @@ def edit(*args, **kwargs):
     pass
 
 
-@organisation_blueprint.route('/profile')
-def org_profile():
+@organisation_blueprint.route('/<org>/profile')
+def org_profile(org):
     # load profile
-    if session['loggedIn']:
-        print([x for x in db.orgs.find({'user': session['user']})])
-        return render_template('organisation.html', org=db.orgs.find_one({'user': session['user']}))
-
     session['context'] = 'org.org_profile'
-    return redirect(url_for('login'))
+    return render_template('organisation.html', org=db.orgs.find_one({'name': org}))
 
 
 @organisation_blueprint.route('/edit')
@@ -34,7 +30,10 @@ def org_delete():
 
 @organisation_blueprint.route('/apply')
 def org_apply():
-    return render_template('org_application.html')
+    if session['loggedIn']:
+        return render_template('org_application.html')
+
+    return redirect(url_for('login'))
 
 
 @organisation_blueprint.route('/create', methods=['GET', 'POST'])

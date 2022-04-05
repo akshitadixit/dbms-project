@@ -127,9 +127,9 @@
 
     <div class="page-heading text-center">
         <div class="container zoomIn animated">
-            <h1 class="page-title">{{profile.username}}<span class="title-under"></span></h1>
+            <h1 class="page-title">{{ profile['username'] }}<span class="title-under"></span></h1>
             <p class="page-description">
-                {{profile.email}}
+                {{ profile['email'] }}
             </p>
         </div>
     </div>
@@ -146,9 +146,14 @@
 
                 </div>
                 <div class="col-md-6">
-                    <p class="page-description">
-                        {{user['email']}}
+                    <h3>
+                        List of organisations created by {{ profile['username'] }}:
+                    </h3>
+                    {% for org in profile['orgs']:%}
+                    <p>
+                        <a href="/org/{{ org['name'] }}/profile">{{ org['name'] }}</a>
                     </p>
+                    {% endfor %}
                 </div>
             </div>
         </div>
