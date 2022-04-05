@@ -10,6 +10,7 @@ from flask import Flask, redirect, session, url_for, render_template, request
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = dotenv_values(".env")['SECRET_KEY']
+app._static_folder = 'static'
 
 
 @app.route('/')

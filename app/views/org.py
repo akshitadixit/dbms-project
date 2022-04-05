@@ -2,16 +2,17 @@ from app.data.data import DataBase as db
 from flask import Blueprint, redirect, render_template, request, session, url_for
 
 organisation_blueprint = Blueprint('organisation', __name__, url_prefix='/org')
+organisation_blueprint._static_folder = 'static'
 
 
 def edit(*args, **kwargs):
     pass
 
 
-@organisation_blueprint.route('/<org>/profile')
+@organisation_blueprint.route('/<org>')
 def org_profile(org):
     # load profile
-    session['context'] = 'org.org_profile'
+    session['context'] = 'organisation.org_profile'
     return render_template('organisation.html', org=db.orgs.find_one({'name': org}))
 
 
